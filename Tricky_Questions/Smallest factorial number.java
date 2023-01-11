@@ -1,0 +1,21 @@
+class Solution {
+    int findNum(int n) {
+        // Complete this function
+        int l = 1, r = 5 * n;
+
+        while (l < r) {
+
+            int mid = (l + r) / 2;
+            int cnt = 0;
+
+            for (int i = 5; i <= mid; i *= 5) {
+                cnt += (mid / i);
+            }
+            if (cnt < n)
+                l = mid + 1;
+            else
+                r = mid;
+        }
+        return l;
+    }
+}
